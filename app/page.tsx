@@ -1,65 +1,55 @@
-import Image from "next/image";
+import React from 'react';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="max-w-4xl mx-auto p-6">
+      {/* Intestazione */}
+      <header className="mb-12 text-center">
+        <h1 className="text-4xl font-bold text-blue-600">Istituto di Geopolitica</h1>
+        <p className="text-gray-600">Previsioni collettive sugli eventi mondiali</p>
+      </header>
+
+      {/* SEZIONE 1: SONDAGGIO DEL GIORNO */}
+      <section className="bg-white border-2 border-blue-100 rounded-2xl p-8 shadow-sm mb-12">
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-blue-500 mb-2">Sondaggio del Giorno</h2>
+        <h3 className="text-2xl font-bold mb-6">Qual è la probabilità che scatti un cessate il fuoco in [Area X] entro domenica?</h3>
+        
+        <div className="space-y-6">
+          <input 
+            type="range" 
+            min="0" 
+            max="100" 
+            className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+          />
+          <div className="flex justify-between text-sm font-medium text-gray-500">
+            <span>0% (Impossibile)</span>
+            <span>50% (Incerto)</span>
+            <span>100% (Certo)</span>
+          </div>
+          
+          <button className="w-full bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700 transition">
+            Invia Previsione
+          </button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* SEZIONE 2: STORICO SONDAGGI */}
+      <section>
+        <h2 className="text-xl font-bold mb-4 text-gray-800">Sondaggi Recenti</h2>
+        <div className="grid gap-4">
+          {/* Esempio di un sondaggio passato */}
+          <div className="p-4 border border-gray-200 rounded-lg flex justify-between items-center">
+            <div>
+              <p className="font-medium">Esito elezioni in [Paese Y]</p>
+              <p className="text-xs text-gray-400">Chiuso il 02/03/2026</p>
+            </div>
+            <div className="text-right">
+              <span className="text-green-600 font-bold">Esito: 100%</span>
+              <p className="text-xs text-gray-500 underline">Vedi dettagli Brier</p>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
